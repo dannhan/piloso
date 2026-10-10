@@ -5,8 +5,8 @@
   "description": "PILOSO — Eksportir Specialty Green Coffee Gunung Muria, Jawa Tengah",
   "scripts": {
     "dev": "npx serve . -l 3000",
-    "preview": "npx serve . -l 3000",
-    "deploy": "wrangler pages deploy . --project-name piloso",
+    "preview": "wrangler dev",
+    "deploy": "wrangler deploy",
     "deploy:preview": "wrangler pages deploy . --project-name piloso --branch preview"
   },
   "keywords": [
@@ -18,5 +18,8 @@
     "cloudflare-pages"
   ],
   "author": "PILOSO",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "wrangler": "^4.149.0"
+  }
 }

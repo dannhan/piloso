@@ -1,0 +1,12 @@
+node_modules
+.git
+.wrangler
+references
+package.json
+package-lock.json
+bun.lock
+bun.lockb
+MIGRATION_GUIDE.md
+wrangler.jsonc
+.gitignore
+.assetsignore
