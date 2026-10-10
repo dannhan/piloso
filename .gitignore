@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Cloudflare
+.wrangler/
+
+# Build artifacts & future frameworks
+dist/
+build/
+.output/
+.next/
+.astro/
+.svelte-kit/
+.nuxt/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs & OS metadata
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
