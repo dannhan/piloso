@@ -1,9 +1,20 @@
 # Cloudflare Pages Redirects
-/1/*    /designs/1/:splat    302
-/2/*    /designs/2/:splat    302
-/3/*    /designs/3/:splat    302
-/4/*    /designs/4/:splat    302
-/1      /designs/1/          302
-/2      /designs/2/          302
-/3      /designs/3/          302
-/4      /designs/4/          302
+# Retain compatibility for previously published concept URLs.
+/designs/1/*    /concepts/agro-heritage/:splat    302
+/designs/2/*    /concepts/warm-roast/:splat       302
+/designs/3/*    /concepts/editorial/:splat        302
+/designs/4/*    /concepts/commercial/:splat       302
+/designs/1      /concepts/agro-heritage/          302
+/designs/2      /concepts/warm-roast/             302
+/designs/3      /concepts/editorial/              302
+/designs/4      /concepts/commercial/             302
+
+# Short reviewer-friendly aliases.
+/1      /concepts/agro-heritage/          302
+/2      /concepts/warm-roast/             302
+/3      /concepts/editorial/              302
+/4      /concepts/commercial/             302
+/1/*    /concepts/agro-heritage/:splat    302
+/2/*    /concepts/warm-roast/:splat       302
+/3/*    /concepts/editorial/:splat        302
+/4/*    /concepts/commercial/:splat       302

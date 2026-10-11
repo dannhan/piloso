@@ -1,68 +1,52 @@
-# Panduan Migrasi Framework (Future Migration Guide)
+# PILOSO static website structure and deployment
 
-Repository ini telah direstrukturisasi agar siap digunakan sekarang sebagai situs statis di Cloudflare Pages, sekaligus memudahkan migrasi ke modern web framework ketika klien telah menentukan opsi desain final.
+This repository is a static client-review site presenting four independent design directions. Keep the concepts separate so each can evolve without affecting the others. A framework is not needed for the current showcase/proposal workflow.
 
----
-
-## 1. Struktur Saat Ini
+## Current structure
 
 ```text
 piloso/
-├── index.html               # Showcase & Client Review Portal (Portal Utama)
-├── designs/                 # Koleksi 4 Arah Desain
-│   ├── 1/                   # Opsi 1: Agro-Heritage & Forest
-│   ├── 2/                   # Opsi 2: Warm Roast & Vintage Gold
-│   ├── 3/                   # Opsi 3: Editorial Specialty
-│   └── 4/                   # Opsi 4: Modern Commercial
-├── 1/, 2/, 3/, 4/           # Fallback redirect stubs (ke /designs/X/)
-├── assets/                  # Brand assets bersama (logo, emblem)
-├── references/              # PDF filosofi & inspirasi
-├── _redirects               # Konfigurasi routing Cloudflare Pages
-├── _headers                 # Header keamanan (iframe SAMEORIGIN) & cache
-├── package.json             # Script npm (preview & deploy)
-└── .gitignore               # Proteksi file environment & cache
+├── index.html                     # Showcase and interactive preview
+├── styles/showcase.css            # Showcase styles
+├── scripts/showcase.js            # Preview tab and viewport controls
+├── concepts/
+│   ├── agro-heritage/             # Concept 1
+│   ├── warm-roast/                # Concept 2
+│   ├── editorial/                 # Concept 3
+│   └── commercial/                # Concept 4
+├── assets/logo/                   # Shared brand asset
+├── references/                    # Source material; excluded from deployment
+├── 1/, 2/, 3/, 4/                 # Fallback pages for short aliases
+├── _redirects                     # Cloudflare Pages aliases
+├── _headers                       # Cloudflare Pages headers
+├── wrangler.jsonc                 # Cloudflare configuration
+├── package.json                   # Local and deployment commands
+└── README.md                      # Usage guide
 ```
 
----
+## Local development
 
-## 2. Cara Kerja Sekarang
+```bash
+npm ci
+npm run dev
+```
 
-- **Root (`/`)**: Menampilkan showcase portal interaktif dengan device preview (Desktop, Tablet, Mobile) dan kartu kurasi untuk presentasi ke klien.
-- **Sub-path (`/designs/1/`, `/designs/2/`, dll)**: Masing-masing opsi berjalan independen dengan CSS dan JS masing-masing.
-- **Deploy Langsung ke Cloudflare**:
-  ```bash
-  wrangler login
-  npm run deploy
-  # atau: wrangler pages deploy . --project-name piloso
-  ```
+Open `http://localhost:3000`. Development and preview use the declared `serve` dependency instead of Wrangler's dev runtime.
 
----
+## Concept URLs
 
-## 3. Langkah Migrasi Nanti (Ketika Opsi Terpilih)
+- Showcase: `/`
+- Concept 1: `/concepts/agro-heritage/` (alias `/1/`)
+- Concept 2: `/concepts/warm-roast/` (alias `/2/`)
+- Concept 3: `/concepts/editorial/` (alias `/3/`)
+- Concept 4: `/concepts/commercial/` (alias `/4/`)
 
-Misalnya klien memilih **Opsi 2 (Warm Roast & Gold)** atau **Opsi 3 (Editorial)**:
+Each concept has its own HTML, CSS, and JavaScript. All use the shared logo in `assets/logo/`; do not add copies to concept folders.
 
-### Rekomendasi Framework: **Astro**
-Astro adalah framework paling ideal untuk situs marketing/katalog ekspor kopi seperti PILOSO karena:
-- **Zero JS by default**: Loading ultra cepat di mobile maupun luar negeri.
-- **Komponen Modular**: Nav, Hero, Lot Table, dan Modal Sampel dipisah ke `.astro` komponen.
-- **Deploy Native di Cloudflare Pages**: Didukung penuh oleh Cloudflare Pages adapter.
+## Deployment
 
-### Langkah Migrasi ke Astro:
-1. Inisialisasi Astro di folder proyek:
-   ```bash
-   npm create astro@latest .
-   ```
-2. Pindahkan folder `designs/` ke `public/designs/` jika masih ingin menyimpan opsi lama sebagai arsip.
-3. Buat komponen di `src/components/`:
-   - `Navbar.astro`
-   - `Hero.astro`
-   - `LotCatalog.astro` (data lot bisa disimpan di `src/data/lots.json`)
-   - `ExportSpecs.astro`
-   - `SampleModal.astro`
-4. Masukkan variabel CSS dari opsi terpilih ke `src/styles/global.css`.
+`npm run deploy` deploys through Wrangler using `wrangler.jsonc`. `npm run deploy:preview` uploads a preview branch to the Cloudflare Pages project named `piloso`. Verify the account and target before deploying.
 
-### Alternatif Framework: **Next.js** / **Nuxt** / **Vite**
-Jika membutuhkan autentikasi buyer portal atau CMS dinamis (Sanity / Strapi / Decap):
-- Letakkan aset statis di folder `public/`.
-- Jalankan integrasi Cloudflare via OpenNext (`@opennextjs/cloudflare`) atau Cloudflare Pages Nuxt adapter.
+## Future migration
+
+Do not introduce a framework merely to tidy the four static concepts. Reconsider Astro once a concept is selected and shared production components/content need to be maintained. A CMS or runtime/backend is warranted only if dynamic content, editor workflows, authentication, or data integrations become requirements.
