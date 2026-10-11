@@ -267,79 +267,101 @@ p{max-width:64ch}
   margin-top:34px;
 }
 
+/* The burlap sack layout and texture borrow from concept 2. */
 .sack{
   position:relative;
   width:min(100%,520px);
   justify-self:end;
   aspect-ratio:4/5;
-  padding:9% 10%;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
+  padding:10% 10% 9%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:auto 1fr auto auto;
+  gap:0 16px;
   color:var(--coffee);
   font-family:'Saira Stencil One',var(--display);
   text-transform:uppercase;
   line-height:1.1;
+  transform:rotate(1.2deg);
   background:
     repeating-linear-gradient(0deg,rgba(70,28,6,.13) 0 1px,transparent 1px 4px),
-    repeating-linear-gradient(90deg,rgba(70,28,6,.08) 0 1px,transparent 1px 5px),
+    repeating-linear-gradient(90deg,rgba(70,28,6,.11) 0 1px,transparent 1px 4px),
+    radial-gradient(circle at 28% 18%,rgba(251,248,235,.4),transparent 62%),
     var(--burlap);
   box-shadow:
-    0 22px 50px rgba(70,28,6,.13),
-    inset 0 0 0 1px rgba(70,28,6,.2),
-    inset 0 0 0 9px rgba(70,28,6,.055);
-  transform:rotate(1.2deg);
+    inset 0 0 0 9px rgba(70,28,6,.07),
+    0 1px 0 rgba(70,28,6,.25),
+    0 36px 48px -30px rgba(70,28,6,.6);
 }
 
 .sack::before{
   content:"";
   position:absolute;
-  inset:18px;
-  border:1px solid rgba(70,28,6,.18);
+  top:14px;
+  left:12px;
+  right:12px;
+  border-top:2px dashed rgba(70,28,6,.4);
+  pointer-events:none;
+}
+
+.sack::after{
+  content:"";
+  position:absolute;
+  inset:6% 7%;
+  border:2px solid rgba(70,28,6,.32);
   pointer-events:none;
 }
 
 .sack p{
   max-width:none;
-  opacity:.88;
+  opacity:.9;
   position:relative;
+  z-index:1;
 }
 
 .s1{
-  font-size:clamp(2.8rem,6vw,5.5rem);
-  letter-spacing:.045em;
+  grid-column:1/-1;
+  font-size:clamp(2.6rem,5.6vw,4.8rem);
+  letter-spacing:.04em;
 }
 
 .s2{
-  font-size:clamp(1.3rem,2.4vw,2rem);
+  grid-column:1/-1;
+  align-self:start;
+  margin-top:.9em;
+  font-size:clamp(1.2rem,2.2vw,1.8rem);
   letter-spacing:.03em;
 }
 
 .s3,.s4{
-  font-size:clamp(.95rem,1.6vw,1.3rem);
+  grid-row:3;
+  font-size:clamp(.9rem,1.4vw,1.15rem);
   letter-spacing:.05em;
 }
 
+.s3{grid-column:1}
+.s4{grid-column:2;text-align:right}
+
 .s5{
-  font-size:clamp(1.05rem,2vw,1.55rem);
+  grid-column:1/-1;
+  grid-row:4;
+  margin-top:16px;
   padding-top:14px;
-  border-top:2px solid var(--coffee);
+  border-top:3px solid var(--coffee);
+  font-size:clamp(1.05rem,1.9vw,1.5rem);
   letter-spacing:.06em;
 }
 
 @media (prefers-reduced-motion:no-preference){
-  .sack p{
-    animation:stamp .5s cubic-bezier(.2,.9,.3,1) both;
-  }
-
+  .sack p{animation:stamp .55s cubic-bezier(.2,.9,.3,1) both}
   .s2{animation-delay:.15s}
   .s3{animation-delay:.3s}
   .s4{animation-delay:.45s}
   .s5{animation-delay:.6s}
 
   @keyframes stamp{
-    from{opacity:0;transform:scale(1.04)}
-    to{opacity:.88;transform:none}
+    from{opacity:0;transform:scale(1.06)}
+    to{opacity:.9;transform:none}
   }
 }
 
@@ -768,37 +790,44 @@ dd{color:var(--muted)}
    Final CTA
 ------------------------------------------------- */
 
+/* Final dark CTA and oversized PILOSO wordmark borrow from concept 2. */
 .cta{
   position:relative;
   overflow:hidden;
-  border-top:1px solid rgba(251,248,235,.12);
+  padding-block:clamp(96px,13vw,184px);
 }
 
-.cta::after{
-  content:"PILOSO";
-  position:absolute;
-  right:-.03em;
-  bottom:-.25em;
-  color:rgba(251,248,235,.035);
-  font:600 clamp(7rem,18vw,18rem)/.7 var(--display);
-  letter-spacing:-.08em;
-  pointer-events:none;
-}
-
-.cta h2,
-.cta p,
-.cta .hero-cta{
+.cta>*{
   position:relative;
   z-index:1;
 }
 
+.cta::after{
+  content:"PILOSO";
+  content:"PILOSO" / "";
+  position:absolute;
+  right:-1%;
+  bottom:-.18em;
+  font:400 clamp(7rem,26vw,24rem)/1 'Saira Stencil One',var(--display);
+  letter-spacing:.02em;
+  color:var(--gold);
+  opacity:.1;
+  pointer-events:none;
+  user-select:none;
+}
+
 .cta h2{
+  font-size:clamp(2.5rem,6vw,5.2rem);
+  letter-spacing:-.04em;
+  line-height:1;
   max-width:14ch;
-  font-size:clamp(2.3rem,5vw,4.5rem);
+  margin-bottom:24px;
 }
 
 .cta p{
-  color:#D8CFBC;
+  font-size:1.2rem;
+  margin-bottom:0;
+  color:var(--on-dark-muted);
 }
 
 /* -------------------------------------------------

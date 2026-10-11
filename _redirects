@@ -1,9 +1,0 @@
-# Cloudflare Pages Redirects
-/1/*    /designs/1/:splat    302
-/2/*    /designs/2/:splat    302
-/3/*    /designs/3/:splat    302
-/4/*    /designs/4/:splat    302
-/1      /designs/1/          302
-/2      /designs/2/          302
-/3      /designs/3/          302
-/4      /designs/4/          302
