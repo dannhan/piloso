@@ -1,58 +1,47 @@
-# PILOSO website proposals
+# PILOSO website
 
-Static client-review site for PILOSO, a specialty green coffee exporter from Gunung Muria, Central Java. The root page presents four independent visual concepts; no application framework or build step is required.
+The production site is the former Modern Commercial design (concept 4), served from the domain root. The proposal showcase and the other three design candidates have been removed.
 
-## Repository layout
+## Layout
 
 ```text
 .
-├── index.html                 # Client-facing concept showcase
-├── styles/showcase.css        # Showcase styles
-├── scripts/showcase.js        # Preview controls
-├── concepts/                  # Standalone concept websites
-│   ├── agro-heritage/
-│   ├── warm-roast/
-│   ├── editorial/
-│   └── commercial/
-├── assets/logo/               # Shared brand asset
-├── references/                # Source material (not deployed)
-├── 1/ … 4/                    # Legacy short-link fallback pages
-├── _headers                   # Cloudflare Pages headers
-├── _redirects                 # Numeric short-link aliases
-└── wrangler.jsonc             # Cloudflare configuration
+├── public/
+│   ├── index.html      # PILOSO homepage
+│   ├── style.css       # Site styles
+│   ├── script.js       # Navigation, FAQ, and sample-form interactions
+│   ├── 404.html        # Browser redirect fallback for Cloudflare Pages
+│   ├── _redirects      # Normalizes /index.html to /
+│   ├── _headers        # Cloudflare Pages security/cache headers
+│   └── assets/logo/    # Shared PILOSO logo
+├── worker.mjs          # Redirects unknown page routes to /
+├── tests/              # Worker redirect tests
+└── wrangler.jsonc      # Cloudflare Worker + static assets config
 ```
 
-Each concept keeps its own `index.html`, `style.css`, and `script.js` so design directions can diverge without affecting one another. They reference the shared logo at `../../assets/logo/logo-original.jpeg`.
+## Routing
+
+The home page is `/`. Requests for other HTML routes redirect to `/`; missing non-page assets remain 404s. Direct `/index.html` requests are normalized to `/`. The Worker returns an HTTP redirect for unknown page routes; the Pages fallback uses `404.html` to redirect the browser to the home page.
 
 ## Local development
 
-Requirements: Node.js and npm. Install the locked dependencies, including the local static server:
+Requires Node.js and npm:
 
 ```sh
 npm ci
+npm test
 npm run dev
 ```
 
-Open `http://localhost:3000`. `npm run preview` serves the same files on `http://localhost:8788`. The development commands use the declared `serve` dependency; Wrangler remains available for deployment.
+Open `http://localhost:3000`. `npm run preview` starts the Cloudflare Pages local preview on port 8788.
 
 ## Deploy
 
-Authenticate with Cloudflare Wrangler, then use the deployment command appropriate for the configured target:
+For the configured Worker with Static Assets:
 
 ```sh
 npx wrangler login
 npm run deploy
 ```
 
-`npm run deploy:preview` publishes a Cloudflare Pages preview branch. Confirm the target project and deployment workflow before publishing.
-
-## URLs
-
-The showcase links directly to `/concepts/<name>/`. The short paths `/1/` through `/4/` remain reviewer-friendly aliases; legacy `/designs/1/` through `/designs/4/` paths also redirect to the renamed concepts. These routes are configured in `_redirects`, with small numeric HTML fallbacks for static hosts that do not process Cloudflare rules.
-
-## Editing
-
-- Update the showcase in `index.html`, `styles/showcase.css`, and `scripts/showcase.js`.
-- Edit each concept only in its matching `concepts/<name>/` directory.
-- Keep shared brand files in `assets/`; avoid copying them into concept folders.
-- Keep `references/` out of published assets.
+`npm run deploy:preview` uploads a Cloudflare Pages preview branch. Confirm the intended Cloudflare target before deploying.

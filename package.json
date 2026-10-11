@@ -4,10 +4,11 @@
   "private": true,
   "description": "PILOSO — Eksportir Specialty Green Coffee Gunung Muria, Jawa Tengah",
   "scripts": {
-    "dev": "serve . -l 3000",
-    "preview": "serve . -l 8788",
+    "dev": "wrangler dev --port 3000",
+    "preview": "wrangler pages dev public --port 8788",
+    "test": "node --test",
     "deploy": "wrangler deploy",
-    "deploy:preview": "wrangler pages deploy . --project-name piloso --branch preview"
+    "deploy:preview": "wrangler pages deploy public --project-name piloso --branch preview"
   },
   "keywords": [
     "coffee",
@@ -20,10 +21,6 @@
   "author": "PILOSO",
   "license": "UNLICENSED",
   "devDependencies": {
-    "serve": "^14.2.6",
     "wrangler": "^4.149.0"
-  },
-  "overrides": {
-    "compression": "^1.8.2"
   }
 }
