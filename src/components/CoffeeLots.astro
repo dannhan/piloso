@@ -40,11 +40,17 @@ const { messages } = Astro.props;
               <span class="proc">{lot.process}</span>
               <span class="notes">{lot.notes}</span>
             </td>
-            <td data-label={messages.coffees.columns[1]}>{lot.altitude}</td>
-            <td data-label={messages.coffees.columns[2]}>{lot.screen}</td>
-            <td data-label={messages.coffees.columns[3]}>{lot.moisture}</td>
+            <td data-label={messages.coffees.columns[1]}>
+              <span class="lot-value">{lot.altitude}</span>
+            </td>
+            <td data-label={messages.coffees.columns[2]}>
+              <span class="lot-value">{lot.screen}</span>
+            </td>
+            <td data-label={messages.coffees.columns[3]}>
+              <span class="lot-value">{lot.moisture}</span>
+            </td>
             <td data-label={messages.coffees.columns[4]}>{lot.defects}</td>
-            <td>
+            <td data-label={messages.coffees.columns[5]}>
               <button class="btn btn-line" onclick={`selectLotAndOpen('${withBrand(lot.name)}')`}>
                 {messages.actions.requestSample}
               </button>

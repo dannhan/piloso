@@ -89,16 +89,16 @@ const en: LocaleMessages = {
     title: '2026 harvest lots',
     description:
       'Physical samples of 200–500 g ship by international express courier. Commercial orders are available by LCL or FCL.',
-    columns: ['Lot', 'Altitude', 'Screen size', 'Moisture / aW', 'Defects', 'Action'],
+    columns: ['Lot', 'Altitude (m asl)', 'Screen size', 'Moisture (%) / aW', 'Defects', 'Action'],
     lots: [
       {
         name: 'Muria Reserve Natural',
         process: 'Controlled anaerobic natural fermentation',
         notes:
           'Dark cherry, ripe plum, raw cacao, and caramelized cane sugar. Full body with a long, sweet finish.',
-        altitude: '950–1,200 m above sea level',
-        screen: 'Screen 16–18',
-        moisture: '11.0–12.0% / 0.58',
+        altitude: '950–1,200',
+        screen: '16–18',
+        moisture: '11.0–12.0 / 0.58',
         defects: '≤ 2%, zero primary defects',
       },
       {
@@ -107,9 +107,9 @@ const en: LocaleMessages = {
         process: 'Yellow honey, pulped natural',
         notes:
           'Apricot, floral honey, roasted hazelnut, balanced citrus acidity, and a smooth, velvety texture.',
-        altitude: '900–1,150 m above sea level',
-        screen: 'Screen 16–18',
-        moisture: '11.5–12.2% / 0.59',
+        altitude: '900–1,150',
+        screen: '16–18',
+        moisture: '11.5–12.2 / 0.59',
         defects: '≤ 2.5%',
       },
       {
@@ -117,9 +117,9 @@ const en: LocaleMessages = {
         process: 'Double washed, sun-dried',
         notes:
           'Dark chocolate nibs, sweet cedar, and nutmeg. A clean, structured cup that works well in espresso blends.',
-        altitude: '850–1,050 m above sea level',
-        screen: 'Screen 16–18',
-        moisture: '10.8–11.8% / 0.56',
+        altitude: '850–1,050',
+        screen: '16–18',
+        moisture: '10.8–11.8 / 0.56',
         defects: '≤ 3%, premium grade',
       },
     ],

@@ -79,16 +79,16 @@ const id: LocaleMessages = {
     title: 'Lot panen 2026',
     description:
       'Sampel fisik 200–500 g dikirim lewat kurir ekspres internasional. Pesanan komersial tersedia dalam LCL maupun FCL.',
-    columns: ['Lot', 'Ketinggian', 'Ayakan', 'Kadar air / aW', 'Cacat', 'Aksi'],
+    columns: ['Lot', 'Ketinggian (mdpl)', 'Ayakan', 'Kadar air (%) / aW', 'Cacat', 'Aksi'],
     lots: [
       {
         name: 'Muria Reserve Natural',
         process: 'Natural anaerobic, fermentasi terkontrol',
         notes:
           'Dark cherry, plum matang, raw cacao, gula tebu karamel. Body kental, aftertaste manis panjang.',
-        altitude: '950–1.200 mdpl',
-        screen: 'Screen 16–18',
-        moisture: '11,0–12,0% / 0,58',
+        altitude: '950–1.200',
+        screen: '16–18',
+        moisture: '11,0–12,0 / 0,58',
         defects: '≤ 2%, zero primary',
       },
       {
@@ -97,9 +97,9 @@ const id: LocaleMessages = {
         process: 'Yellow honey, pulped natural',
         notes:
           'Aprikot, madu floral, hazelnut sangrai, keasaman sitrus seimbang, tekstur lembut seperti beludru.',
-        altitude: '900–1.150 mdpl',
-        screen: 'Screen 16–18',
-        moisture: '11,5–12,2% / 0,59',
+        altitude: '900–1.150',
+        screen: '16–18',
+        moisture: '11,5–12,2 / 0,59',
         defects: '≤ 2,5%',
       },
       {
@@ -107,9 +107,9 @@ const id: LocaleMessages = {
         process: 'Double washed, jemur matahari',
         notes:
           'Dark chocolate nibs, sweet cedar, pala. Clean cup dan terstruktur, cocok untuk racikan espresso.',
-        altitude: '850–1.050 mdpl',
-        screen: 'Screen 16–18',
-        moisture: '10,8–11,8% / 0,56',
+        altitude: '850–1.050',
+        screen: '16–18',
+        moisture: '10,8–11,8 / 0,56',
         defects: '≤ 3%, premium',
       },
     ],
