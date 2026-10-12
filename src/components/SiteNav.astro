@@ -1,17 +1,19 @@
 ---
 import { SITE } from '../config/site';
+import type { Locale } from '../i18n/useTranslations';
 import type { LocaleMessages } from '../i18n/types';
 
 interface Props {
   messages: LocaleMessages;
+  locale: Locale;
 }
 
-const { messages } = Astro.props;
+const { messages, locale } = Astro.props;
 ---
 
 <nav class="nav">
   <a href="#hero" class="brand">
-    <img src="/assets/logo/logo-original.jpeg" alt={`Logo ${SITE.brand}`} />
+    <img src="/assets/logo/logo-original.jpeg" alt={messages.nav.logoAlt} />
     <span>{SITE.brand}</span>
   </a>
   <ul class="links" id="navLinks">
@@ -24,6 +26,15 @@ const { messages } = Astro.props;
   <button class="btn btn-solid" onclick="openSampleModal()">
     {messages.actions.requestSample}
   </button>
+  <a
+    class="language-switch"
+    href={locale === 'id' ? '/en/' : '/'}
+    hreflang={locale === 'id' ? 'en' : 'id'}
+    lang={locale === 'id' ? 'en' : 'id'}
+    aria-label={messages.nav.languageSwitchLabel}
+  >
+    {locale === 'id' ? 'EN' : 'ID'}
+  </a>
   <button
     class="menu-toggle"
     id="menuToggle"

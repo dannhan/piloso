@@ -1,0 +1,46 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import SiteNav from './SiteNav.astro';
+import HeroSection from './HeroSection.astro';
+import ValueBand from './ValueBand.astro';
+import OriginSection from './OriginSection.astro';
+import CoffeeLots from './CoffeeLots.astro';
+import ExportSection from './ExportSection.astro';
+import ProcessSection from './ProcessSection.astro';
+import PhilosophySection from './PhilosophySection.astro';
+import FaqSection from './FaqSection.astro';
+import FinalCta from './FinalCta.astro';
+import SiteFooter from './SiteFooter.astro';
+import SampleModal from './SampleModal.astro';
+import FloatingWhatsApp from './FloatingWhatsApp.astro';
+import { SITE } from '../config/site';
+import { useTranslations, type Locale } from '../i18n/useTranslations';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const messages = useTranslations(locale);
+---
+
+<SiteLayout
+  title={`${SITE.brand} — ${messages.meta.titleSuffix}`}
+  description={messages.meta.description}
+  lang={locale}
+>
+  <SiteNav messages={messages} locale={locale} />
+  <HeroSection messages={messages} />
+  <ValueBand messages={messages} />
+  <OriginSection messages={messages} />
+  <CoffeeLots messages={messages} />
+  <ExportSection messages={messages} />
+  <ProcessSection messages={messages} />
+  <PhilosophySection messages={messages} />
+  <FaqSection messages={messages} />
+  <FinalCta messages={messages} />
+  <SiteFooter messages={messages} />
+  <SampleModal messages={messages} />
+  <FloatingWhatsApp messages={messages} />
+  <script src="/script.js" is:inline></script>
+</SiteLayout>

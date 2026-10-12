@@ -20,6 +20,8 @@ const id: LocaleMessages = {
       { label: 'FAQ', href: '#faq' },
     ],
     menuLabel: 'Buka menu',
+    languageSwitchLabel: 'Ganti bahasa ke English',
+    logoAlt: 'Logo PILOSO',
   },
   hero: {
     kickerSuffix: ' / GREEN COFFEE EXPORT',
