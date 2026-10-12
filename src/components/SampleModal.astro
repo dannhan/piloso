@@ -1,0 +1,87 @@
+---
+import { withBrand } from '../config/site';
+import type { LocaleMessages } from '../i18n/types';
+
+interface Props {
+  messages: LocaleMessages;
+}
+
+const { messages } = Astro.props;
+---
+
+<div
+  class="modal-overlay"
+  id="sampleModal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modalTitle"
+>
+  <div class="modal-container">
+    <button class="modal-close" onclick="closeSampleModal()" aria-label={messages.modal.closeLabel}>
+      &times;
+    </button>
+    <h3 id="modalTitle">{messages.modal.title}</h3>
+    <p class="modal-desc">{messages.modal.description}</p>
+    <form id="sampleForm" onsubmit="handleSampleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fullName">{messages.modal.fields.fullName}</label>
+          <input id="fullName" class="form-input" required />
+        </div>
+        <div class="form-group">
+          <label for="companyName">{messages.modal.fields.company}</label>
+          <input id="companyName" class="form-input" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="emailAddr">{messages.modal.fields.email}</label>
+          <input type="email" id="emailAddr" class="form-input" required />
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">{messages.modal.fields.phone}</label>
+          <input type="tel" id="phoneNumber" class="form-input" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="destCountry">{messages.modal.fields.destination}</label>
+          <input
+            id="destCountry"
+            class="form-input"
+            placeholder={messages.modal.placeholders.destination}
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="lotSelection">{messages.modal.fields.lot}</label>
+          <select id="lotSelection" class="form-input" required>
+            <option value={messages.modal.allLotsValue}>{messages.modal.allLotsOption}</option>
+            {messages.coffees.lots.map((lot) => (
+              <option value={withBrand(lot.name)}>{withBrand(lot.name)}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="projectNotes">{messages.modal.fields.notes}</label>
+        <textarea
+          id="projectNotes"
+          class="form-input"
+          rows="3"
+          placeholder={messages.modal.placeholders.notes}
+        ></textarea>
+      </div>
+      <button type="submit" class="btn btn-solid btn-lg btn-block">
+        {messages.modal.submit}
+      </button>
+    </form>
+    <div id="formSuccess" class="form-success" style="display:none">
+      <h4>{messages.modal.successTitle}</h4>
+      <p>{messages.modal.successDescription}</p>
+      <button class="btn btn-line" onclick="closeSampleModal()">
+        {messages.modal.closeLabel}
+      </button>
+    </div>
+  </div>
+</div>

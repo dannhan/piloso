@@ -12,10 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
       menuToggle.setAttribute('aria-expanded', String(open));
     };
     menuToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('active')));
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+    navLinks
+      .querySelectorAll('a')
+      .forEach((a) => a.addEventListener('click', () => setMenu(false)));
   }
 
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
       const id = this.getAttribute('href');
       if (id && id !== '#') {
@@ -43,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function toggleFaq(btn) {
   const item = btn.parentElement;
   const wasActive = item.classList.contains('active');
-  document.querySelectorAll('.faq-item').forEach(f => {
+  document.querySelectorAll('.faq-item').forEach((f) => {
     f.classList.remove('active');
     f.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
   });

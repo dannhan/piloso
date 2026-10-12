@@ -1,0 +1,27 @@
+---
+import { withBrand } from '../config/site';
+import type { LocaleMessages } from '../i18n/types';
+
+interface Props {
+  messages: LocaleMessages;
+}
+
+const { messages } = Astro.props;
+---
+
+<section class="sec sec-alt" id="philosophy" data-marker={messages.philosophy.marker}>
+  <div class="split">
+    <div class="logo-block">
+      <h2>{withBrand(messages.philosophy.title)}</h2>
+      <img src="/assets/logo/logo-original.jpeg" alt={withBrand(messages.philosophy.imageAlt)} />
+    </div>
+    <dl class="meaning">
+      {messages.philosophy.items.map((item) => (
+        <div>
+          <dt>{item.title}</dt>
+          <dd>{withBrand(item.description)}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>

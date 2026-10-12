@@ -1,0 +1,36 @@
+---
+import { SITE } from '../config/site';
+import type { LocaleMessages } from '../i18n/types';
+
+interface Props {
+  messages: LocaleMessages;
+}
+
+const { messages } = Astro.props;
+---
+
+<nav class="nav">
+  <a href="#hero" class="brand">
+    <img src="/assets/logo/logo-original.jpeg" alt={`Logo ${SITE.brand}`} />
+    <span>{SITE.brand}</span>
+  </a>
+  <ul class="links" id="navLinks">
+    {messages.nav.links.map((link) => (
+      <li>
+        <a href={link.href}>{link.label}</a>
+      </li>
+    ))}
+  </ul>
+  <button class="btn btn-solid" onclick="openSampleModal()">
+    {messages.actions.requestSample}
+  </button>
+  <button
+    class="menu-toggle"
+    id="menuToggle"
+    aria-label={messages.nav.menuLabel}
+    aria-expanded="false"
+  >
+    <span></span>
+    <span></span>
+  </button>
+</nav>

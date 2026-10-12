@@ -1,0 +1,58 @@
+---
+import { withBrand } from '../config/site';
+import type { LocaleMessages } from '../i18n/types';
+interface Props {
+  messages: LocaleMessages;
+}
+
+const { messages } = Astro.props;
+---
+
+<section class="sec sec-alt" id="coffees" data-marker={messages.coffees.marker}>
+  <h2>{messages.coffees.title}</h2>
+  <p class="lead">{messages.coffees.description}</p>
+  <div class="table-wrap">
+    <table class="lots">
+      <thead>
+        <tr>
+          {messages.coffees.columns.map((column, index) => (
+            <th>
+              {index === messages.coffees.columns.length - 1 ? (
+                <span class="sr">{column}</span>
+              ) : (
+                column
+              )}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {messages.coffees.lots.map((lot) => (
+          <tr>
+            <td data-label={messages.coffees.columns[0]}>
+              <strong>{withBrand(lot.name)}</strong>
+              {lot.tag && (
+                <>
+                  {' '}
+                  <span class="fav">{lot.tag}</span>
+                </>
+              )}
+              <span class="proc">{lot.process}</span>
+              <span class="notes">{lot.notes}</span>
+            </td>
+            <td data-label={messages.coffees.columns[1]}>{lot.altitude}</td>
+            <td data-label={messages.coffees.columns[2]}>{lot.screen}</td>
+            <td data-label={messages.coffees.columns[3]}>{lot.moisture}</td>
+            <td data-label={messages.coffees.columns[4]}>{lot.defects}</td>
+            <td>
+              <button class="btn btn-line" onclick={`selectLotAndOpen('${withBrand(lot.name)}')`}>
+                {messages.actions.requestSample}
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="note">{messages.coffees.note}</p>
+</section>

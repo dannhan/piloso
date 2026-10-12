@@ -1,0 +1,21 @@
+---
+import type { LocaleMessages } from '../i18n/types';
+
+interface Props {
+  messages: LocaleMessages;
+}
+
+const { messages } = Astro.props;
+---
+
+<section class="sec" id="process" data-marker={messages.process.marker}>
+  <h2>{messages.process.title}</h2>
+  <div class="cols4">
+    {messages.process.stages.map((stage) => (
+      <div>
+        <h3>{stage.title}</h3>
+        <p>{stage.description}</p>
+      </div>
+    ))}
+  </div>
+</section>

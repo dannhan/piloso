@@ -13,6 +13,9 @@ build/
 .next/
 .astro/
 .svelte-kit/
+
+# Local HTML parity baseline; keep it unchanged.
+references/astro-parity-index.html
 .nuxt/
 
 # Environment files

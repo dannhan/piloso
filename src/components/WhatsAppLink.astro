@@ -1,0 +1,23 @@
+---
+import { SITE, withBrand } from '../config/site';
+
+interface Props {
+  label: string;
+  message: string;
+  className: string;
+  classFirst?: boolean;
+}
+
+const { label, message, className, classFirst = false } = Astro.props;
+const href = `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(withBrand(message))}`;
+---
+
+{classFirst ? (
+  <a class={className} href={href} target="_blank" rel="noopener">
+    {label}
+  </a>
+) : (
+  <a href={href} target="_blank" rel="noopener" class={className}>
+    {label}
+  </a>
+)}

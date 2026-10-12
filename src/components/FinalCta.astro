@@ -1,0 +1,26 @@
+---
+import WhatsAppLink from './WhatsAppLink.astro';
+import type { LocaleMessages } from '../i18n/types';
+
+interface Props {
+  messages: LocaleMessages;
+}
+
+const { messages } = Astro.props;
+---
+
+<section class="sec dark cta">
+  <h2>{messages.cta.title}</h2>
+  <p>{messages.cta.description}</p>
+  <div class="hero-cta">
+    <button class="btn btn-solid btn-lg" onclick="openSampleModal()">
+      {messages.actions.applySample}
+    </button>
+    <WhatsAppLink
+      classFirst={true}
+      className="btn btn-light btn-lg"
+      label={messages.cta.whatsappLabel}
+      message={messages.cta.whatsappMessage}
+    />
+  </div>
+</section>
