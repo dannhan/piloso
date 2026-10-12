@@ -23,7 +23,6 @@ const en: LocaleMessages = {
       { label: 'FAQ', href: '#faq' },
     ],
     menuLabel: 'Open menu',
-    languageSwitchLabel: 'Switch language to Bahasa Indonesia',
     logoAlt: 'PILOSO logo',
   },
   // REVIEW: Hero copy and sack image accessible label.

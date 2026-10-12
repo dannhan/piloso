@@ -1,4 +1,5 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import { SITE } from '../config/site';
 import type { Locale } from '../i18n/useTranslations';
 import type { LocaleMessages } from '../i18n/types';
@@ -9,6 +10,9 @@ interface Props {
 }
 
 const { messages, locale } = Astro.props;
+const targetLocale: Locale = locale === 'id' ? 'en' : 'id';
+const switchText = locale === 'id' ? 'EN' : 'ID';
+const switchName = locale === 'id' ? 'English' : 'Bahasa Indonesia';
 ---
 
 <nav class="nav">
@@ -28,12 +32,12 @@ const { messages, locale } = Astro.props;
   </button>
   <a
     class="language-switch"
-    href={locale === 'id' ? '/en/' : '/'}
-    hreflang={locale === 'id' ? 'en' : 'id'}
-    lang={locale === 'id' ? 'en' : 'id'}
-    aria-label={messages.nav.languageSwitchLabel}
+    href={getRelativeLocaleUrl(targetLocale)}
+    hreflang={targetLocale}
+    lang={targetLocale}
+    aria-label={`${switchText}: ${switchName}`}
   >
-    {locale === 'id' ? 'EN' : 'ID'}
+    {switchText}
   </a>
   <button
     class="menu-toggle"

@@ -10,7 +10,6 @@ export interface LocaleMessages {
   nav: {
     links: { label: string; href: string }[];
     menuLabel: string;
-    languageSwitchLabel: string;
     logoAlt: string;
   };
   hero: {
