@@ -1,0 +1,16 @@
+---
+import WhatsAppLink from './WhatsAppLink.astro';
+import type { LocaleMessages } from '../i18n/types';
+
+interface Props {
+  messages: LocaleMessages;
+}
+
+const { messages } = Astro.props;
+---
+
+<WhatsAppLink
+  className="wa-float"
+  label={messages.floating.label}
+  message={messages.floating.whatsappMessage}
+/>

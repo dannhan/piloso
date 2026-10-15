@@ -1,2 +1,3 @@
 # Normalize direct requests for the HTML entry point.
 /index.html / 302
+/en/index.html /en/ 302

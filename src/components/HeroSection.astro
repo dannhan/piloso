@@ -1,0 +1,44 @@
+---
+import { SITE, withBrand } from '../config/site';
+import type { LocaleMessages } from '../i18n/types';
+
+interface Props {
+  messages: LocaleMessages;
+}
+
+const { messages } = Astro.props;
+---
+
+<header class="hero" id="hero">
+  <div class="hero-text" data-kicker={`${SITE.brand}${messages.hero.kickerSuffix}`}>
+    <h1>{messages.hero.title}</h1>
+    <p>{messages.hero.description}</p>
+    <div class="hero-cta">
+      <button class="btn btn-solid btn-lg" onclick="openSampleModal()">
+        {messages.actions.applySample}
+      </button>
+      <a href="#coffees" class="btn btn-line btn-lg">
+        {messages.hero.lotsLink}
+      </a>
+    </div>
+  </div>
+  <div class="sack" role="img" aria-label={withBrand(messages.hero.sackLabel)}>
+    <p class="s1">{SITE.brand}</p>
+    <p class="s2">
+      {messages.hero.sackProduct}
+      <br />
+      {messages.hero.harvest}
+    </p>
+    <p class="s3">
+      {messages.hero.origin}
+      <br />
+      {messages.hero.elevation}
+    </p>
+    <p class="s4">
+      {messages.hero.netWeight}
+      <br />
+      {messages.hero.packaging}
+    </p>
+    <p class="s5">{messages.hero.port}</p>
+  </div>
+</header>

@@ -1,0 +1,35 @@
+---
+import { SITE } from '../config/site';
+import type { LocaleMessages } from '../i18n/types';
+
+interface Props {
+  messages: LocaleMessages;
+}
+
+const { messages } = Astro.props;
+---
+
+<footer class="footer">
+  <div>
+    <strong>{SITE.brand}</strong>
+    <p>{messages.footer.description}</p>
+  </div>
+  <ul>
+    {messages.footer.links.map((link) => (
+      <li>
+        <a href={link.href}>{link.label}</a>
+      </li>
+    ))}
+  </ul>
+  <ul>
+    <li>{SITE.email}</li>
+    <li>
+      {messages.footer.whatsappLabel} {SITE.whatsappDisplay}
+    </li>
+    <li>{messages.footer.responseTime}</li>
+  </ul>
+  <p class="legal">
+    &copy; {messages.footer.copyrightYear} {SITE.brand}
+    {messages.footer.copyrightSuffix} <a href="#hero">{messages.footer.backToTop}</a>
+  </p>
+</footer>

@@ -1,0 +1,29 @@
+---
+import { withBrand } from '../config/site';
+import type { LocaleMessages } from '../i18n/types';
+
+interface Props {
+  messages: LocaleMessages;
+}
+
+const { messages } = Astro.props;
+---
+
+<section class="sec" id="origin" data-marker={messages.origin.marker}>
+  <div class="split">
+    <div>
+      <h2>{messages.origin.title}</h2>
+      <p class="lead">{messages.origin.lead}</p>
+      <p>{withBrand(messages.origin.story)}</p>
+      <blockquote>{withBrand(messages.origin.quote)}</blockquote>
+    </div>
+    <dl class="facts">
+      {messages.origin.facts.map((fact) => (
+        <div>
+          <dt>{fact.label}</dt>
+          <dd>{fact.value}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>

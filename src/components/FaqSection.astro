@@ -1,0 +1,25 @@
+---
+import type { LocaleMessages } from '../i18n/types';
+
+interface Props {
+  messages: LocaleMessages;
+}
+
+const { messages } = Astro.props;
+---
+
+<section class="sec" id="faq" data-marker={messages.faq.marker}>
+  <h2>{messages.faq.title}</h2>
+  <div class="faq-list">
+    {messages.faq.items.map((item) => (
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          {item.question}
+        </button>
+        <div class="faq-answer">
+          <p>{item.answer}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
