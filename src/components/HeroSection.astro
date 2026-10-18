@@ -9,7 +9,7 @@ interface Props {
 const { messages } = Astro.props;
 ---
 
-<header class="hero" id="hero">
+<section class="hero" id="hero">
   <div class="hero-text" data-kicker={`${SITE.brand}${messages.hero.kickerSuffix}`}>
     <h1>{messages.hero.title}</h1>
     <p>{messages.hero.description}</p>
@@ -41,4 +41,4 @@ const { messages } = Astro.props;
     </p>
     <p class="s5">{messages.hero.port}</p>
   </div>
-</header>
+</section>
