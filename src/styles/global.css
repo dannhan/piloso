@@ -932,6 +932,10 @@ dd {
   transform: scale(0.97);
 }
 
+.faq-question:focus-visible:active .faq-icon {
+  transform: none;
+}
+
 .faq-item.active .faq-icon {
   background: var(--stone);
 }
@@ -942,9 +946,17 @@ dd {
 
 .faq-answer {
   display: none;
-  padding: 0 52px 25px 0;
   color: var(--muted);
   font-size: 0.96rem;
+}
+
+.faq-answer-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.faq-answer-inner p {
+  padding: 0 52px 25px 0;
 }
 
 .faq-item.active .faq-answer {
@@ -952,24 +964,36 @@ dd {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .faq-item.active .faq-answer {
-    opacity: 1;
-    transform: translateY(0);
-    transition:
-      opacity 180ms cubic-bezier(0.23, 1, 0.32, 1),
-      transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  @starting-style {
-    .faq-item.active .faq-answer {
+  @supports (grid-template-rows: minmax(0, 1fr)) {
+    .faq-answer {
+      display: grid;
+      grid-template-rows: minmax(0, 0fr);
       opacity: 0;
-      transform: translateY(-4px);
+      visibility: hidden;
+      transition:
+        grid-template-rows 160ms cubic-bezier(0.23, 1, 0.32, 1),
+        opacity 120ms cubic-bezier(0.23, 1, 0.32, 1),
+        visibility 0s linear 160ms;
+    }
+
+    .faq-item.active .faq-answer {
+      display: grid;
+      grid-template-rows: minmax(0, 1fr);
+      opacity: 1;
+      visibility: visible;
+      transition:
+        grid-template-rows 200ms cubic-bezier(0.23, 1, 0.32, 1),
+        opacity 180ms cubic-bezier(0.23, 1, 0.32, 1),
+        visibility 0s;
+    }
+
+    .faq-list.faq-instant .faq-answer {
+      transition: none;
     }
   }
 
-  .faq-item:has(.faq-question:focus-visible) .faq-answer,
-  .faq-question:focus-visible .faq-icon,
-  .faq-question:focus-visible .faq-icon::after {
+  .faq-list.faq-instant .faq-icon,
+  .faq-list.faq-instant .faq-icon::after {
     transition: none;
   }
 }
@@ -1449,7 +1473,7 @@ dd {
     padding: 34px 20px 25px;
   }
 
-  .faq-answer {
+  .faq-answer-inner p {
     padding-right: 0;
   }
 
@@ -1470,6 +1494,12 @@ dd {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .faq-answer,
+  .faq-icon,
+  .faq-icon::after {
+    transition: none !important;
   }
 
   *,

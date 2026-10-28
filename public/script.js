@@ -43,17 +43,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-function toggleFaq(btn) {
+function toggleFaq(btn, event) {
   const item = btn.parentElement;
-  const wasActive = item.classList.contains('active');
-  document.querySelectorAll('.faq-item').forEach((f) => {
-    f.classList.remove('active');
-    f.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+  const list = item.parentElement;
+  const willOpen = !item.classList.contains('active');
+  list.classList.toggle('faq-instant', event.detail === 0);
+  list.querySelectorAll('.faq-item').forEach((faqItem) => {
+    const open = faqItem === item && willOpen;
+    const answer = faqItem.querySelector('.faq-answer');
+    faqItem.classList.toggle('active', open);
+    faqItem.querySelector('.faq-question').setAttribute('aria-expanded', String(open));
+    answer.setAttribute('aria-hidden', String(!open));
+    answer.inert = !open;
   });
-  if (!wasActive) {
-    item.classList.add('active');
-    btn.setAttribute('aria-expanded', 'true');
-  }
 }
 
 function openSampleModal() {

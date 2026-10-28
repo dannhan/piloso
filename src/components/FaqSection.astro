@@ -12,14 +12,21 @@ const { messages } = Astro.props;
   <p class="section-marker">{messages.faq.marker}</p>
   <h2>{messages.faq.title}</h2>
   <div class="faq-list">
-    {messages.faq.items.map((item) => (
+    {messages.faq.items.map((item, index) => (
       <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+        <button
+          class="faq-question"
+          onclick="toggleFaq(this, event)"
+          aria-expanded="false"
+          aria-controls={`faq-answer-${index}`}
+        >
           {item.question}
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
-        <div class="faq-answer">
-          <p>{item.answer}</p>
+        <div class="faq-answer" id={`faq-answer-${index}`} aria-hidden="true" inert>
+          <div class="faq-answer-inner">
+            <p>{item.answer}</p>
+          </div>
         </div>
       </div>
     ))}
