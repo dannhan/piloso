@@ -54,9 +54,11 @@ img {
   max-width: 100%;
   display: block;
 }
+
 a {
   color: inherit;
 }
+
 button,
 input,
 select,
@@ -124,10 +126,12 @@ p {
 .btn:hover {
   transform: translateY(-1px);
 }
+
 .btn-lg {
   padding: 15px 25px;
   font-size: 0.82rem;
 }
+
 .btn-block {
   width: 100%;
 }
@@ -194,6 +198,7 @@ p {
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(8px);
 }
+
 .brand {
   flex: 0 0 auto;
   display: flex;
@@ -247,6 +252,7 @@ p {
 .links a:hover {
   color: var(--coffee);
 }
+
 .links a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
@@ -274,10 +280,12 @@ p {
   height: 40px;
   cursor: pointer;
 }
-.nav > .btn {
+
+.nav>.btn {
   flex: 0 0 auto;
   white-space: nowrap;
 }
+
 .menu-toggle span {
   display: block;
   height: 1px;
@@ -298,12 +306,10 @@ p {
   padding: clamp(64px, 9vw, 132px) var(--edge);
   border-bottom: 1px solid var(--line);
   background:
-    linear-gradient(
-      90deg,
+    linear-gradient(90deg,
       transparent 0,
       transparent calc(100% - 1px),
-      rgba(70, 28, 6, 0.025) calc(100% - 1px)
-    ),
+      rgba(70, 28, 6, 0.025) calc(100% - 1px)),
     var(--paper);
 }
 
@@ -417,6 +423,7 @@ p {
 .s3 {
   grid-column: 1;
 }
+
 .s4 {
   grid-column: 2;
   text-align: right;
@@ -436,15 +443,19 @@ p {
   .sack p {
     animation: stamp 0.55s cubic-bezier(0.2, 0.9, 0.3, 1) both;
   }
+
   .s2 {
     animation-delay: 0.15s;
   }
+
   .s3 {
     animation-delay: 0.3s;
   }
+
   .s4 {
     animation-delay: 0.45s;
   }
+
   .s5 {
     animation-delay: 0.6s;
   }
@@ -454,6 +465,7 @@ p {
       opacity: 0;
       transform: scale(1.06);
     }
+
     to {
       opacity: 0.9;
       transform: none;
@@ -474,17 +486,17 @@ p {
   border-bottom: 1px solid var(--line);
 }
 
-.band > div {
+.band>div {
   position: relative;
   padding: 34px clamp(18px, 3vw, 42px) 38px 0;
 }
 
-.band > div + div {
+.band>div+div {
   padding-left: clamp(18px, 3vw, 42px);
   border-left: 1px solid var(--line);
 }
 
-.band > div::before {
+.band>div::before {
   content: '01';
   display: block;
   margin-bottom: 20px;
@@ -493,16 +505,18 @@ p {
   letter-spacing: 0.14em;
 }
 
-.band > div:nth-child(2)::before {
+.band>div:nth-child(2)::before {
   content: '02';
 }
-.band > div:nth-child(3)::before {
+
+.band>div:nth-child(3)::before {
   content: '03';
 }
 
 .band h3 {
   margin-bottom: 8px;
 }
+
 .band p {
   color: var(--muted);
   font-size: 0.93rem;
@@ -521,7 +535,7 @@ p {
   background: var(--cream);
 }
 
-.sec > .lead {
+.sec>.lead {
   color: var(--muted);
 }
 
@@ -537,11 +551,12 @@ p {
   gap: clamp(40px, 7vw, 110px);
   align-items: start;
 }
+
 .hero-text,
-.split > *,
-.band > div,
-.cols4 > div,
-.footer > * {
+.split>*,
+.band>div,
+.cols4>div,
+.footer>* {
   min-width: 0;
 }
 
@@ -556,7 +571,7 @@ blockquote {
   line-height: 1.45;
 }
 
-dl > div {
+dl>div {
   display: grid;
   grid-template-columns: minmax(8rem, 11rem) 1fr;
   gap: 18px;
@@ -564,7 +579,7 @@ dl > div {
   border-top: 1px solid var(--line);
 }
 
-dl > div:last-child {
+dl>div:last-child {
   border-bottom: 1px solid var(--line);
 }
 
@@ -715,12 +730,14 @@ dd {
   color: rgba(251, 248, 235, 0.74);
 }
 
-.dark dl > div {
+.dark dl>div {
   border-color: rgba(251, 248, 235, 0.2);
 }
+
 .dark dt {
   color: var(--gold);
 }
+
 .dark dd {
   color: #efead6;
 }
@@ -734,7 +751,7 @@ dd {
   border-top: 2px solid var(--gold);
 }
 
-.terms > div:first-child {
+.terms>div:first-child {
   border-top: 0;
 }
 
@@ -787,13 +804,13 @@ dd {
   border-top: 1px solid var(--line-strong);
 }
 
-.cols4 > div {
+.cols4>div {
   counter-increment: p;
   position: relative;
   padding-top: 32px;
 }
 
-.cols4 > div::after {
+.cols4>div::after {
   content: '';
   position: absolute;
   top: -4px;
@@ -804,7 +821,7 @@ dd {
   background: var(--gold);
 }
 
-.cols4 > div::before {
+.cols4>div::before {
   content: counter(p, decimal-leading-zero);
   display: block;
   font: 300 3rem/1 var(--display);
@@ -818,6 +835,7 @@ dd {
   font-size: 1.3rem;
   font-weight: 500;
 }
+
 .cols4 p {
   color: var(--muted);
   font-size: 0.97rem;
@@ -840,7 +858,7 @@ dd {
   background: var(--paper);
 }
 
-.meaning > div {
+.meaning>div {
   padding: 21px 0;
 }
 
@@ -928,7 +946,7 @@ dd {
   padding-block: clamp(96px, 13vw, 184px);
 }
 
-.cta > * {
+.cta>* {
   position: relative;
   z-index: 1;
 }
@@ -1000,6 +1018,7 @@ dd {
   text-decoration: none;
   transition: color 0.2s;
 }
+
 .footer a:hover {
   color: var(--gold);
   text-decoration: underline;
@@ -1167,18 +1186,20 @@ dd {
   .hero-text {
     max-width: 760px;
   }
+
   .sack {
     justify-self: start;
     max-width: 470px;
   }
 }
+
 @media (max-width: 1120px) {
   .menu-toggle {
     display: block;
     margin-left: auto;
   }
 
-  .nav > .btn {
+  .nav>.btn {
     display: none;
   }
 
@@ -1210,6 +1231,7 @@ dd {
     display: none;
   }
 }
+
 @media (min-width: 1121px) and (max-width: 1279px) {
   .nav {
     gap: clamp(12px, 1.1vw, 18px);
@@ -1224,6 +1246,7 @@ dd {
     font-size: clamp(0.72rem, 0.8vw, 0.78rem);
   }
 }
+
 @media (max-width: 1024px) {
   .lots {
     min-width: 0;
@@ -1270,6 +1293,7 @@ dd {
 }
 
 @media (max-width: 900px) {
+
   .hero,
   .split,
   .footer {
@@ -1280,11 +1304,11 @@ dd {
     grid-template-columns: 1fr;
   }
 
-  .band > div {
+  .band>div {
     padding: 25px 0;
   }
 
-  .band > div + div {
+  .band>div+div {
     padding-left: 0;
     border-left: 0;
     border-top: 1px solid var(--line);
@@ -1294,11 +1318,11 @@ dd {
     grid-template-columns: 1fr 1fr;
   }
 
-  .cols4 > div {
+  .cols4>div {
     padding-bottom: 26px;
   }
 
-  .cols4 > div + div {
+  .cols4>div+div {
     padding-left: 22px;
   }
 }
@@ -1340,7 +1364,7 @@ dd {
     padding-bottom: 70px;
   }
 
-  dl > div {
+  dl>div {
     grid-template-columns: 1fr;
     gap: 3px;
   }
@@ -1354,14 +1378,14 @@ dd {
     border-top: 1px solid var(--line-strong);
   }
 
-  .cols4 > div,
-  .cols4 > div + div {
+  .cols4>div,
+  .cols4>div+div {
     padding-left: 0;
     border-left: 0;
     border-bottom: 1px solid var(--line);
   }
 
-  .cols4 > div:last-child {
+  .cols4>div:last-child {
     border-bottom: 0;
   }
 
