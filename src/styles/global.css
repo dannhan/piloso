@@ -685,7 +685,7 @@ dd {
 }
 
 .lot-value {
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 
 .lots strong {
