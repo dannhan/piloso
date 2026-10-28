@@ -253,6 +253,7 @@ button:active,
   color: var(--muted);
   padding: 8px 0;
   white-space: nowrap;
+  transition: color 160ms ease-out;
 }
 
 .links a::after {
@@ -287,6 +288,7 @@ button:active,
   letter-spacing: 0.08em;
   text-decoration: none;
   white-space: nowrap;
+  transition: color 160ms ease-out;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -314,6 +316,21 @@ button:active,
   height: 1px;
   background: var(--coffee);
   margin: 6px 8px;
+  transition:
+    transform 160ms ease-out,
+    opacity 160ms ease-out;
+}
+
+.menu-toggle[aria-expanded='true'] span:first-child {
+  transform: translateY(13px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded='true'] span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded='true'] span:last-child {
+  transform: translateY(-13px) rotate(-45deg);
 }
 
 /* -------------------------------------------------
