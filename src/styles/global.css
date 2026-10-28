@@ -1302,15 +1302,24 @@ dd {
     left: 0;
     right: 0;
     flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
     gap: 0;
     margin-left: 0;
     background: var(--paper);
     border-bottom: 1px solid var(--line);
     padding: 8px var(--edge) 14px;
+    max-height: calc(100vh - 70px);
+    max-height: calc(100dvh - 70px);
+    overflow-y: auto;
   }
 
   .links.active {
     display: flex;
+  }
+
+  .links li {
+    flex-shrink: 0;
   }
 
   .links a {
