@@ -16,6 +16,7 @@ const { messages } = Astro.props;
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
           {item.question}
+          <span class="faq-icon" aria-hidden="true"></span>
         </button>
         <div class="faq-answer">
           <p>{item.answer}</p>
