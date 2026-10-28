@@ -103,10 +103,6 @@ p {
   outline-offset: 4px;
 }
 
-/* -------------------------------------------------
-   Buttons
-------------------------------------------------- */
-
 .btn {
   font: 600 0.82rem var(--body);
   letter-spacing: 0.045em;
@@ -200,10 +196,6 @@ button:active,
   overflow: hidden;
   clip: rect(0 0 0 0);
 }
-
-/* -------------------------------------------------
-   Navigation
-------------------------------------------------- */
 
 .nav {
   position: sticky;
@@ -333,10 +325,6 @@ button:active,
   transform: translateY(-13px) rotate(-45deg);
 }
 
-/* -------------------------------------------------
-   Hero
-------------------------------------------------- */
-
 .hero {
   min-height: min(820px, calc(100vh - 61px));
   display: grid;
@@ -388,7 +376,6 @@ button:active,
   margin-top: 34px;
 }
 
-/* The burlap sack layout and texture borrow from concept 2. */
 .sack {
   position: relative;
   width: min(100%, 520px);
@@ -513,10 +500,6 @@ button:active,
   }
 }
 
-/* -------------------------------------------------
-   Value strip
-------------------------------------------------- */
-
 .band {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -562,10 +545,6 @@ button:active,
   font-size: 0.93rem;
   max-width: 42ch;
 }
-
-/* -------------------------------------------------
-   Sections
-------------------------------------------------- */
 
 .sec {
   padding: var(--section-space) var(--edge);
@@ -639,10 +618,6 @@ dd {
   font: 600 0.67rem var(--body);
   letter-spacing: 0.17em;
 }
-
-/* -------------------------------------------------
-   Coffee lots / trade sheet
-------------------------------------------------- */
 
 #coffees {
   background: var(--cream);
@@ -744,10 +719,6 @@ dd {
   color: var(--muted);
 }
 
-/* -------------------------------------------------
-   Export
-------------------------------------------------- */
-
 .dark {
   background: var(--coffee);
   color: var(--cream);
@@ -824,10 +795,6 @@ dd {
   font-size: 0.97rem;
 }
 
-/* -------------------------------------------------
-   Processing
-------------------------------------------------- */
-
 .cols4 {
   counter-reset: p;
   display: grid;
@@ -874,10 +841,6 @@ dd {
   font-size: 0.97rem;
 }
 
-/* -------------------------------------------------
-   Philosophy
-------------------------------------------------- */
-
 .logo-block {
   position: relative;
 }
@@ -905,10 +868,6 @@ dd {
   margin-top: 4px;
   max-width: 52ch;
 }
-
-/* -------------------------------------------------
-   FAQ
-------------------------------------------------- */
 
 .faq-list {
   margin-top: 38px;
@@ -967,11 +926,6 @@ dd {
   display: block;
 }
 
-/* -------------------------------------------------
-   Final CTA
-------------------------------------------------- */
-
-/* Final dark CTA and oversized PILOSO wordmark borrow from concept 2. */
 .cta {
   position: relative;
   overflow: hidden;
@@ -1012,10 +966,6 @@ dd {
   margin-bottom: 0;
   color: #d8cfbc;
 }
-
-/* -------------------------------------------------
-   Footer
-------------------------------------------------- */
 
 .footer {
   display: grid;
@@ -1066,10 +1016,6 @@ dd {
   font-size: 0.85rem;
   max-width: none;
 }
-
-/* -------------------------------------------------
-   Sample modal
-------------------------------------------------- */
 
 .modal-overlay {
   position: fixed;
@@ -1205,10 +1151,6 @@ dd {
   color: var(--muted);
 }
 
-/* -------------------------------------------------
-   Floating contact
-------------------------------------------------- */
-
 .wa-float {
   position: fixed;
   right: 20px;
@@ -1238,10 +1180,6 @@ dd {
     transform: translateY(-1px);
   }
 }
-
-/* -------------------------------------------------
-   Responsive
-------------------------------------------------- */
 
 @media (max-width: 1000px) {
   .hero {

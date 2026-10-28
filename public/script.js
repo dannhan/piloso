@@ -1,5 +1,3 @@
-/** PILOSO Coffee Exporter */
-
 let lastFocus = null;
 
 document.addEventListener('DOMContentLoaded', () => {
