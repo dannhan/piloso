@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const target = document.querySelector(id);
         if (target) {
           e.preventDefault();
-          const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+          const behavior = globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches
             ? 'auto'
             : 'smooth';
           target.scrollIntoView({ behavior, block: 'start' });
