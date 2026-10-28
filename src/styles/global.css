@@ -685,6 +685,7 @@ dd {
   font: 600 1.35rem var(--display);
   letter-spacing: -0.025em;
   color: var(--coffee);
+  overflow-wrap: anywhere;
 }
 
 .proc {
@@ -695,6 +696,7 @@ dd {
   color: #85662d;
   font-weight: 600;
   margin: 8px 0 8px;
+  overflow-wrap: anywhere;
 }
 
 .notes {
@@ -703,6 +705,7 @@ dd {
   font-size: 0.91rem;
   line-height: 1.55;
   max-width: 44ch;
+  overflow-wrap: anywhere;
 }
 
 .fav {
