@@ -291,6 +291,7 @@ button:active,
 
 .menu-toggle {
   display: none;
+  position: relative;
   background: none;
   border: 0;
   width: 40px;
@@ -305,16 +306,27 @@ button:active,
 
 .menu-toggle span {
   display: block;
+  position: absolute;
+  top: calc(50% - 0.5px);
+  left: 8px;
+  right: 8px;
   height: 1px;
   background: var(--coffee);
-  margin: 6px 8px;
   transition:
     transform 160ms ease-out,
     opacity 160ms ease-out;
 }
 
+.menu-toggle span:first-child {
+  transform: translateY(-7px);
+}
+
+.menu-toggle span:last-child {
+  transform: translateY(7px);
+}
+
 .menu-toggle[aria-expanded='true'] span:first-child {
-  transform: translateY(13px) rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .menu-toggle[aria-expanded='true'] span:nth-child(2) {
@@ -322,7 +334,7 @@ button:active,
 }
 
 .menu-toggle[aria-expanded='true'] span:last-child {
-  transform: translateY(-13px) rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 .hero {
