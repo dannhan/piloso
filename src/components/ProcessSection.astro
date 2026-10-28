@@ -8,7 +8,8 @@ interface Props {
 const { messages } = Astro.props;
 ---
 
-<section class="sec" id="process" data-marker={messages.process.marker}>
+<section class="sec" id="process">
+  <p class="section-marker">{messages.process.marker}</p>
   <h2>{messages.process.title}</h2>
   <div class="cols4">
     {messages.process.stages.map((stage) => (

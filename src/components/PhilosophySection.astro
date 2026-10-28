@@ -9,7 +9,8 @@ interface Props {
 const { messages } = Astro.props;
 ---
 
-<section class="sec sec-alt" id="philosophy" data-marker={messages.philosophy.marker}>
+<section class="sec sec-alt" id="philosophy">
+  <p class="section-marker">{messages.philosophy.marker}</p>
   <div class="split">
     <div class="logo-block">
       <h2>{withBrand(messages.philosophy.title)}</h2>

@@ -8,7 +8,8 @@ interface Props {
 const { messages } = Astro.props;
 ---
 
-<section class="sec dark" id="export" data-marker={messages.export.marker}>
+<section class="sec dark" id="export">
+  <p class="section-marker">{messages.export.marker}</p>
   <div class="split">
     <div>
       <h2>{messages.export.title}</h2>

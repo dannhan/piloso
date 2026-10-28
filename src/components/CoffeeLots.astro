@@ -8,7 +8,8 @@ interface Props {
 const { messages } = Astro.props;
 ---
 
-<section class="sec sec-alt" id="coffees" data-marker={messages.coffees.marker}>
+<section class="sec sec-alt" id="coffees">
+  <p class="section-marker">{messages.coffees.marker}</p>
   <h2>{messages.coffees.title}</h2>
   <p class="lead">{messages.coffees.description}</p>
   <div class="table-wrap">

@@ -632,22 +632,13 @@ dd {
   color: var(--muted);
 }
 
-/* section markers read localized text from the page markup */
-#origin::before,
-#coffees::before,
-#export::before,
-#process::before,
-#philosophy::before,
-#faq::before {
-  content: attr(data-marker);
+.section-marker {
   display: block;
   margin-bottom: 20px;
   color: var(--gold);
   font: 600 0.67rem var(--body);
   letter-spacing: 0.17em;
 }
-
-/* Section markers share the attribute-driven text above. */
 
 /* -------------------------------------------------
    Coffee lots / trade sheet

@@ -9,7 +9,8 @@ interface Props {
 const { messages } = Astro.props;
 ---
 
-<section class="sec" id="origin" data-marker={messages.origin.marker}>
+<section class="sec" id="origin">
+  <p class="section-marker">{messages.origin.marker}</p>
   <div class="split">
     <div>
       <h2>{messages.origin.title}</h2>
