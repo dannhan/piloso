@@ -5,14 +5,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.getElementById('navLinks');
 
   if (menuToggle && navLinks) {
+    const nav = menuToggle.closest('nav');
     const setMenu = (open) => {
       navLinks.classList.toggle('active', open);
       menuToggle.setAttribute('aria-expanded', String(open));
     };
-    menuToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('active')));
+    menuToggle.addEventListener('click', (event) => {
+      const open = !navLinks.classList.contains('active');
+      setMenu(open);
+      if (open && event.detail === 0) navLinks.querySelector('a').focus();
+    });
     navLinks
       .querySelectorAll('a')
       .forEach((a) => a.addEventListener('click', () => setMenu(false)));
+    nav.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && navLinks.classList.contains('active')) {
+        setMenu(false);
+        menuToggle.focus();
+      }
+    });
+    document.addEventListener('click', (event) => {
+      if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) setMenu(false);
+    });
+    globalThis.matchMedia('(max-width: 1120px)').addEventListener('change', (event) => {
+      if (!event.matches) setMenu(false);
+    });
   }
 
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {

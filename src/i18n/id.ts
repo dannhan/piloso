@@ -19,7 +19,7 @@ const id: LocaleMessages = {
       { label: 'Filosofi', href: '#philosophy' },
       { label: 'FAQ', href: '#faq' },
     ],
-    menuLabel: 'Buka menu',
+    menuLabel: 'Menu navigasi',
     logoAlt: 'Logo PILOSO',
   },
   hero: {

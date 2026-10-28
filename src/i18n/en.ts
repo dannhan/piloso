@@ -22,7 +22,7 @@ const en: LocaleMessages = {
       { label: 'Our philosophy', href: '#philosophy' },
       { label: 'FAQ', href: '#faq' },
     ],
-    menuLabel: 'Open menu',
+    menuLabel: 'Navigation menu',
     logoAlt: 'PILOSO logo',
   },
   // REVIEW: Hero copy and sack image accessible label.
