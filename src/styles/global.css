@@ -1215,6 +1215,10 @@ dd {
   color: var(--coffee);
 }
 
+select.form-input {
+  height: calc(1.65em + 26px);
+}
+
 .form-input::placeholder {
   color: #958c79;
 }
