@@ -640,6 +640,14 @@ dd {
   overflow-x: auto;
 }
 
+.lots-empty {
+  margin-top: 42px;
+}
+
+.lots-empty p {
+  margin-bottom: 18px;
+}
+
 .lots {
   width: 100%;
   border-collapse: collapse;

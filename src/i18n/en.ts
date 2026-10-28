@@ -89,6 +89,7 @@ const en: LocaleMessages = {
     description:
       'Physical samples of 200–500 g ship by international express courier. Commercial orders are available by LCL or FCL.',
     columns: ['Lot', 'Altitude (m asl)', 'Screen size', 'Moisture (%) / aW', 'Defects', 'Action'],
+    emptyMessage: 'No lots are currently listed. Contact us for current availability.',
     lots: [
       {
         name: 'Muria Reserve Natural',

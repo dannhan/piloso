@@ -40,6 +40,7 @@ export interface LocaleMessages {
     title: string;
     description: string;
     columns: string[];
+    emptyMessage: string;
     lots: {
       name: string;
       tag?: string;

@@ -1,6 +1,7 @@
 ---
 import { withBrand } from '../config/site';
 import type { LocaleMessages } from '../i18n/types';
+import WhatsAppLink from './WhatsAppLink.astro';
 interface Props {
   messages: LocaleMessages;
 }
@@ -12,6 +13,13 @@ const { messages } = Astro.props;
   <p class="section-marker">{messages.coffees.marker}</p>
   <h2>{messages.coffees.title}</h2>
   <p class="lead">{messages.coffees.description}</p>
+  {messages.coffees.lots.length === 0 ? (
+    <div class="lots-empty">
+      <p>{messages.coffees.emptyMessage}</p>
+      <WhatsAppLink label={messages.cta.whatsappLabel} message={messages.cta.whatsappMessage} className="btn btn-line" />
+    </div>
+  ) : (
+    <>
   <div class="table-wrap">
     <table class="lots">
       <thead>
@@ -62,4 +70,6 @@ const { messages } = Astro.props;
     </table>
   </div>
   <p class="note">{messages.coffees.note}</p>
+    </>
+  )}
 </section>

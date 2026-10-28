@@ -79,6 +79,7 @@ const id: LocaleMessages = {
     description:
       'Sampel fisik 200–500 g dikirim lewat kurir ekspres internasional. Pesanan komersial tersedia dalam LCL maupun FCL.',
     columns: ['Lot', 'Ketinggian (mdpl)', 'Ayakan', 'Kadar air (%) / aW', 'Cacat', 'Aksi'],
+    emptyMessage: 'Belum ada lot yang tercantum. Hubungi kami untuk informasi ketersediaan.',
     lots: [
       {
         name: 'Muria Reserve Natural',
