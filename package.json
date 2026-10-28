@@ -5,7 +5,6 @@
   "description": "PILOSO — Eksportir Specialty Green Coffee Gunung Muria, Jawa Tengah",
   "scripts": {
     "dev": "astro dev --port 3000",
-    "prepreview": "npm run build",
     "preview": "wrangler dev --port 8788",
     "build": "astro build",
     "format": "prettier --write \"src/**/*.{astro,ts,css}\" astro.config.mjs eslint.config.mjs prettier.config.mjs package.json public/script.js tsconfig.json wrangler.jsonc worker.mjs \"tests/**/*.mjs\"",
@@ -13,7 +12,7 @@
     "lint": "eslint .",
     "typecheck": "astro check",
     "test": "node --test",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "wrangler deploy"
   },
   "keywords": [
     "coffee",

@@ -51,7 +51,7 @@ npx wrangler deploy --dry-run
 npm audit
 ```
 
-`npm run preview` runs `npm run build` first and then starts Wrangler locally. Stop it after verification and confirm port `8788` is free. Do not use `npm run deploy` without explicit approval; this project is not deployed by this workflow.
+Wrangler runs `npm run build` before local preview and deployment, as configured in `wrangler.jsonc`. Stop the preview after verification and confirm port `8788` is free.
 
 ## Routing
 
@@ -112,7 +112,6 @@ The package keyword `cloudflare-pages` is historical metadata and is not used by
 No deployment was performed during this migration. When explicitly approved:
 
 ```sh
-npm run build
 npx wrangler deploy --dry-run
 npx wrangler deploy
 ```
