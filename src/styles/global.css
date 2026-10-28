@@ -66,6 +66,10 @@ textarea {
   font: inherit;
 }
 
+button {
+  transition: transform 140ms ease-out;
+}
+
 h1,
 h2,
 h3,
@@ -120,11 +124,16 @@ p {
     background 0.2s ease,
     color 0.2s ease,
     border-color 0.2s ease,
-    transform 0.2s ease;
+    transform 140ms ease-out;
 }
 
 .btn:hover {
   transform: translateY(-1px);
+}
+
+button:active,
+.btn:active {
+  transform: scale(0.97);
 }
 
 .btn-lg {
