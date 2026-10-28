@@ -127,8 +127,10 @@ p {
     transform 140ms ease-out;
 }
 
-.btn:hover {
-  transform: translateY(-1px);
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    transform: translateY(-1px);
+  }
 }
 
 button:active,
@@ -151,10 +153,12 @@ button:active,
   color: var(--paper);
 }
 
-.btn-solid:hover {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--coffee);
+@media (hover: hover) and (pointer: fine) {
+  .btn-solid:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--coffee);
+  }
 }
 
 .dark .btn-solid {
@@ -163,14 +167,18 @@ button:active,
   color: var(--coffee);
 }
 
-.dark .btn-solid:hover {
-  background: #d4a64f;
-  border-color: #d4a64f;
+@media (hover: hover) and (pointer: fine) {
+  .dark .btn-solid:hover {
+    background: #d4a64f;
+    border-color: #d4a64f;
+  }
 }
 
-.btn-line:hover {
-  background: var(--coffee);
-  color: var(--paper);
+@media (hover: hover) and (pointer: fine) {
+  .btn-line:hover {
+    background: var(--coffee);
+    color: var(--paper);
+  }
 }
 
 .btn-light {
@@ -178,9 +186,11 @@ button:active,
   color: var(--paper);
 }
 
-.btn-light:hover {
-  background: var(--paper);
-  color: var(--coffee);
+@media (hover: hover) and (pointer: fine) {
+  .btn-light:hover {
+    background: var(--paper);
+    color: var(--coffee);
+  }
 }
 
 .sr {
@@ -258,13 +268,15 @@ button:active,
   transition: transform 0.22s ease;
 }
 
-.links a:hover {
-  color: var(--coffee);
-}
+@media (hover: hover) and (pointer: fine) {
+  .links a:hover {
+    color: var(--coffee);
+  }
 
-.links a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
+  .links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
 }
 
 .language-switch {
@@ -277,8 +289,10 @@ button:active,
   white-space: nowrap;
 }
 
-.language-switch:hover {
-  color: var(--gold);
+@media (hover: hover) and (pointer: fine) {
+  .language-switch:hover {
+    color: var(--gold);
+  }
 }
 
 .menu-toggle {
@@ -661,8 +675,10 @@ dd {
   transition: background 0.18s ease;
 }
 
-.lots tbody tr:hover {
-  background: rgba(196, 147, 64, 0.07);
+@media (hover: hover) and (pointer: fine) {
+  .lots tbody tr:hover {
+    background: rgba(196, 147, 64, 0.07);
+  }
 }
 
 .lot-value {
@@ -1028,9 +1044,11 @@ dd {
   transition: color 0.2s;
 }
 
-.footer a:hover {
-  color: var(--gold);
-  text-decoration: underline;
+@media (hover: hover) and (pointer: fine) {
+  .footer a:hover {
+    color: var(--gold);
+    text-decoration: underline;
+  }
 }
 
 .footer .legal {
@@ -1176,10 +1194,12 @@ dd {
     transform 0.2s ease;
 }
 
-.wa-float:hover {
-  background: var(--coffee);
-  color: var(--paper);
-  transform: translateY(-1px);
+@media (hover: hover) and (pointer: fine) {
+  .wa-float:hover {
+    background: var(--coffee);
+    color: var(--paper);
+    transform: translateY(-1px);
+  }
 }
 
 /* -------------------------------------------------
