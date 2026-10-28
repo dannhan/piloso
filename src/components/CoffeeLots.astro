@@ -52,7 +52,7 @@ const { messages } = Astro.props;
             </td>
             <td data-label={messages.coffees.columns[4]}>{lot.defects}</td>
             <td data-label={messages.coffees.columns[5]}>
-              <button class="btn btn-line" onclick={`selectLotAndOpen('${withBrand(lot.name)}')`}>
+              <button class="btn btn-line" data-lot={withBrand(lot.name)} onclick="selectLotAndOpen(this.dataset.lot)">
                 {messages.actions.requestSample}
               </button>
             </td>
