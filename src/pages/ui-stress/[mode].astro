@@ -1,0 +1,120 @@
+---
+import CoffeeLots from '../../components/CoffeeLots.astro';
+import SampleModal from '../../components/SampleModal.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import en from '../../i18n/en';
+
+export function getStaticPaths() {
+  return import.meta.env.DEV
+    ? ['demo', 'worst', 'empty', 'one', 'many'].map((mode) => ({ params: { mode } }))
+    : [];
+}
+
+const mode = Astro.params.mode;
+const worstLots = [
+  {
+    name: "O'Brien Estate Extended Fermentation Natural Reserve",
+    tag: 'Limited-release selection for partner roasteries',
+    process: 'Extended anaerobic fermentation followed by slow natural drying',
+    notes:
+      'Ripe blackcurrant, dried apricot, caramelized panela, jasmine, dark chocolate and a long, sweet finish.',
+    altitude: '1,100–1,450 m above sea level',
+    screen: '15–18 (64ths of an inch)',
+    moisture: '10.5–12.5 / 0.57–0.62',
+    defects: 'Less than 2% secondary defects; zero primary defects',
+  },
+  {
+    name: 'SantaMariaTransmontanaPacamaraReserve',
+    process: 'Fully washed and dried on raised beds',
+    notes:
+      'Bergamot, red apple, sugarcane sweetness and cocoa; traceability details at example.com/coffee/lots/santamariatransmontanapacamarareserve.',
+    altitude: '1,300–1,600',
+    screen: '15–18',
+    moisture: '11.0–12.0 / 0.58',
+    defects: '≤ 2%',
+  },
+  {
+    name: 'A',
+    process: 'Washed',
+    notes: '黑莓，茉莉，柑橘，蜂蜜与黑巧克力，余韵甜美悠长。',
+    altitude: '900',
+    screen: '16',
+    moisture: '11.2 / 0.58',
+    defects: '0',
+  },
+];
+const lots =
+  mode === 'worst'
+    ? worstLots
+    : mode === 'empty'
+      ? []
+      : mode === 'one'
+        ? en.coffees.lots.slice(0, 1)
+        : mode === 'many'
+          ? Array.from({ length: 1000 }, (_, index) => ({
+              ...en.coffees.lots[index % en.coffees.lots.length],
+              name: `Harvest lot ${index + 1}`,
+            }))
+          : en.coffees.lots;
+const messages = {
+  ...en,
+  actions: {
+    ...en.actions,
+    requestSample:
+      mode === 'worst' ? 'Request a representative pre-shipment sample' : en.actions.requestSample,
+  },
+  coffees: { ...en.coffees, lots },
+};
+const modes = [
+  ['demo', 'Demo data'],
+  ['worst', 'Worst case'],
+  ['empty', 'Empty'],
+  ['one', 'One'],
+  ['many', '1,000 rows'],
+];
+---
+
+<SiteLayout title="Lot listing stress test" description="Development-only UI stress test" lang="en">
+  <CoffeeLots messages={messages} />
+  <SampleModal messages={messages} />
+  <nav class="stress-controls" aria-label="Development test data">
+    {modes.map(([key, label]) => (
+      <a href={`/ui-stress/${key}/`} aria-current={mode === key ? 'page' : undefined}>
+        {label}
+      </a>
+    ))}
+  </nav>
+  <script src="/script.js" is:inline></script>
+  <style is:inline>
+    .stress-controls {
+      position: fixed;
+      z-index: 200;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2px;
+      width: max-content;
+      max-width: calc(100% - 24px);
+      padding: 4px;
+      border: 1px solid #aaa;
+      border-radius: 8px;
+      background: #eee;
+      font:
+        12px/1.2 system-ui,
+        sans-serif;
+    }
+    .stress-controls a {
+      padding: 7px 9px;
+      border-radius: 5px;
+      color: #222;
+      text-decoration: none;
+    }
+    .stress-controls a[aria-current='page'] {
+      background: #fff;
+      box-shadow: 0 1px 3px #0002;
+    }
+  </style>
+</SiteLayout>
